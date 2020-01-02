@@ -1,0 +1,14 @@
+# 打開重寫引擎
+RewriteEngine On
+
+# 設定基準目錄，從根目錄開始比對
+RewriteBase /
+
+# 這兩句語句的意思是請求的檔案或路徑是不存在的，如果檔案或路徑存在將返回已經存在的檔案或路徑
+# 重新比對網址，倘若請求網址是資料夾。
+RewriteCond %{REQUEST_FILENAME} !-d
+# 設定比對條件，若請求的網址是檔案。
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# 阻止目錄瀏覽
+Options All -Indexes
